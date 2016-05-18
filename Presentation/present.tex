@@ -1,0 +1,317 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Lecture Slide (basic)
+% E W Fulp  3/15/2016  
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%
+% Ghostview parameters
+%   Display settings
+%     Resolution      95 dpi
+%     Zoom            300 dpi
+%     Depth           24 bits/pixel
+%     Text alpha      4 bits
+%     Graphics alpha  4 bit
+%
+\documentclass[slidesonly,  semlayer, landscape]{seminar}
+
+%  add package etex to resolve "size" problems, must be first  (go figure)
+\usepackage{etex}
+\usepackage[dvips]{color}
+\usepackage{fancybox}
+% \usepackage{amsmath,amsthm}
+\usepackage{graphics}
+\input{epsf}
+% \usepackage[ps,dvips,all]{xy}
+% \usepackage[all]{xy}
+
+\usepackage{pstricks}
+\usepackage{multirow}
+\usepackage{rotating}
+\usepackage{xcolor,colortbl}
+
+% to use listings must get new version of graphics.ins and compile
+\usepackage{listings}
+
+\usepackage{tikz}
+\usetikzlibrary{positioning}
+\usetikzlibrary{arrows}
+\usetikzlibrary{automata}
+\usetikzlibrary{shapes,arrows,fit}
+\usetikzlibrary{patterns}
+\usetikzlibrary{decorations.pathreplacing}
+\usetikzlibrary{calc} 
+\usetikzlibrary{petri} 
+\usetikzlibrary{shapes,snakes}
+\usepackage{amsmath,amssymb}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.8}
+
+\slidewidth=9.0in
+\slideheight=6.55in
+\renewcommand{\slidetopmargin}{0.25in}
+
+\newcommand{\Heading}[1]{%
+  % \begin{center}
+    {\large\bf
+    #1 \\ \vspace{-0.15in}\hrule}%
+  % \end{center}
+  \vspace{2ex minus 1ex}
+  }
+
+\def\printlandscape{\special{landscape}}
+% \slidesmag{5}
+% \articlemag{1}
+
+% \twoup
+
+\newcommand{\WFUshield}[1]
+{
+\resizebox{#1}{!}{%
+{\renewcommand{\arraystretch}{2.0}\begin{tabular}{c} \\ \\ \\
+\begin{pspicture}(4, 2)
+   % \psgrid
+   % shield outline
+   \pscurve[linewidth=1pt, fillstyle=solid, fillcolor=wfuGold]{-}(2, 4.2)(0, 4)(0, 4)(0, 3)(0.5, 1.2)(2, 0.2)(2, 0.2)(2, 4.2)
+      \pscurve[linewidth=1pt, fillstyle=solid, fillcolor=black]{-}(2, 0.2)(3.5, 1.2)(4, 3)(4, 4)(4, 4)(2, 4.2)(2, 4.2)(2, 0.5)
+
+   % internal lines
+   \pscurve[linewidth=8pt, linecolor=black]{-}(0.8, 4.1)(1.5, 3.6)(2, 3)
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(3.2, 4.1)(2.5, 3.6)(2, 3)
+
+   \pscurve[linewidth=8pt, linecolor=black]{-}(0, 3)(0.9, 2.1)(1.3, 0.5)
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(4, 3)(3.1, 1.9)(2.7, 0.5)
+
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(2, 3)(2.7, 1.5)(2.7, 0.5)
+   \pscurve[linewidth=8pt, linecolor=black]{-}(2, 3)(1.3, 1.5)(1.3, 0.5)
+
+   % shield fill
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(4, 4)(2, 4.2)(0, 4)(0, 4)(0, 3)(0.5, 1.2)(2, 0.2)(2, 0.2)(3.5, 1.2)(4, 3)(4, 4)(4, 4)(2, 4.2)
+   \pscurve[linewidth=8pt, linecolor=black]{-}(2, 4.2)(0, 4)(0, 4)(0, 3)(0.5, 1.2)(2, 0.2)
+ \end{pspicture}
+ \end{tabular}}}
+}
+
+\newcommand{\WFUlogo}[1]
+{
+\resizebox{#1}{!}{%
+\begin{pspicture}(24.2, 6.2)
+   % \psgrid
+
+   % shield outline
+   \pscurve[linewidth=1pt, fillstyle=solid, fillcolor=wfuGold]{-}(2, 6.2)(0, 6)(0, 6)(0, 5)(0.5, 3.2)(2, 2.2)(2, 2.2)(2, 6.2)
+      \pscurve[linewidth=1pt, fillstyle=solid, fillcolor=black]{-}(2, 2.2)(3.5, 3.2)(4, 5)(4, 6)(4, 6)(2, 6.2)(2, 6.2)(2, 2.5)
+
+   % internal lines
+   \pscurve[linewidth=8pt, linecolor=black]{-}(0.8, 6.1)(1.5, 5.6)(2, 5)
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(3.2, 6.1)(2.5, 5.6)(2, 5)
+
+   \pscurve[linewidth=8pt, linecolor=black]{-}(0, 5)(0.9, 4.1)(1.3, 2.5)
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(4, 5)(3.1, 3.9)(2.7, 2.5)
+
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(2, 5)(2.7, 3.5)(2.7, 2.5)
+   \pscurve[linewidth=8pt, linecolor=black]{-}(2, 5)(1.3, 3.5)(1.3, 2.5)
+
+   % shield fill
+   \pscurve[linewidth=8pt, linecolor=wfuGold]{-}(4, 6)(2, 6.2)(0, 6)(0, 6)(0, 5)(0.5, 3.2)(2, 2.2)(2, 2.2)(3.5, 3.2)(4, 5)(4, 6)(4, 6)(2, 6.2)
+   \pscurve[linewidth=8pt, linecolor=black]{-}(2, 6.2)(0, 6)(0, 6)(0, 5)(0.5, 3.2)(2, 2.2)
+
+   % Wake Forest
+   \rput[bl](5, 4){\scalebox{8.5}{\rm W}\scalebox{6.8}{\bf \rm \hspace{-1.0ex} AKE }\scalebox{8.5}{\rm F}\scalebox{6.8}{\rm \hspace{-1.0ex} OREST}}
+
+   %  University
+   \rput[bl](5.6, 2.5){\scalebox{3.0}{\rm U\hspace{1.125ex} N\hspace{1.125ex} I\hspace{1.125ex} V\hspace{1.125ex} E\hspace{1.125ex} R\hspace{1.125ex} S\hspace{1.125ex} I\hspace{1.125ex} T\hspace{1.125ex} Y }}
+
+   %  Department of Computer Science
+   \rput[bl](5.6, 0.5){\scalebox{3.0}{\bf \textcolor{wfuGold}{Department of Computer Science }}}
+ \end{pspicture}}
+}
+
+
+\newcommand{\lectureTitle}
+  {\LaTeX~Slides \\ Crap Your Pants! }
+
+
+ \definecolor{wfuGold}{rgb}{0.62, 0.5, 0.22}
+
+
+\title{\lectureTitle \\ \vspace{0.1in}\hrule}
+\author{% \scriptsize CSC 343$\cdot$643 \\
+   \renewcommand{\arraystretch}{0.25}
+   \begin{tabular}{c} \\
+   \WFUlogo{1.75in} \\ \\
+   \end{tabular} \\
+   \scriptsize \textit{Defense, April 2016}}
+\date{ }
+
+% Wake defined background color  
+%  \definecolor{cream}{rgb}{1.0, 0.99, 0.91}   
+% \pagecolor{cream}  
+
+\newcommand{\sref}[1]{SLIDE \ref{#1}}
+% \newcommand{\heading}[1]{\begin{center}\large\bf #1\end{center}}
+\newcommand{\heading}[1]{\small #1}
+
+
+% general slide layout  
+\newpagestyle{MH}%
+{ }
+{{ 
+\tiny
+\begin{tabular}{c|p{2.8in}|c|c} \hline
+ Seal Team 5.5 &  hobo4change@mailinator.com & Spring 2015 & \thepage
+\end{tabular}
+}}
+\pagestyle{MH}
+
+\slideframe[]{none}
+
+% \slideframe[\setlength{shadowsize}{12pt}]{shadow}
+% \slideframe[\psset{fillstyle=gradient}]{scplain}
+
+\renewcommand{\familydefault}{cmss}
+
+% defines the distribution of tokens in the Petri net diagram  
+% only works if there are four tokens  
+\makeatletter
+\tikz@def@grow@tokens{4}{1}{0}{-1.5}
+\tikz@def@grow@tokens{4}{2}{0}{-0.5}
+\tikz@def@grow@tokens{4}{3}{0}{0.5}
+\tikz@def@grow@tokens{4}{4}{0}{1.5}
+\makeatother
+
+% code to allow random selection from list without replacement  
+\makeatletter
+\def\pgfmathrandomitemwithoutreplacement#1#2{%
+    \pgfmath@ifundefined{pgfmath@randomlist@#2}{\pgfmath@error{Unknown random list `#2'}}{%
+        \edef\pgfmath@randomlistlength{\csname pgfmath@randomlist@#2\endcsname}%
+        \ifnum\pgfmath@randomlistlength>0\relax%
+            \pgfmathrandominteger{\pgfmath@randomtemp}{1}{\pgfmath@randomlistlength}%
+            \def\pgfmath@marshal{\def#1}%
+            \expandafter\expandafter\expandafter\pgfmath@marshal\expandafter\expandafter\expandafter{\csname pgfmath@randomlist@#2@\pgfmath@randomtemp\endcsname}%
+            % Now prune.
+            \c@pgfmath@counta=\pgfmath@randomtemp\relax%
+            \c@pgfmath@countb=\c@pgfmath@counta%
+            \advance\c@pgfmath@countb by1\relax%
+            \pgfmathloop%
+            \ifnum\c@pgfmath@counta=\pgfmath@randomlistlength\relax%
+            \else%
+                \def\pgfmath@marshal{\expandafter\global\expandafter\let\csname pgfmath@randomlist@#2@\the\c@pgfmath@counta\endcsname=}%
+                \expandafter\pgfmath@marshal\csname pgfmath@randomlist@#2@\the\c@pgfmath@countb\endcsname%
+                \advance\c@pgfmath@counta by1\relax%
+                \advance\c@pgfmath@countb by1\relax%
+            \repeatpgfmathloop%
+            \advance\c@pgfmath@counta by-1\relax%
+            \expandafter\xdef\csname pgfmath@randomlist@#2\endcsname{\the\c@pgfmath@counta}%        
+        \else%
+            \pgfmath@error{Random list `#2' is empty}%
+        \fi%        
+    }}
+
+
+\def\pgfmathrandomlistcopy#1#2{%
+    \pgfmath@ifundefined{pgfmath@randomlist@#2}{\pgfmath@error{Unknown random list `#2'}}{%
+        \edef\pgfmath@randomlistlength{\csname pgfmath@randomlist@#2\endcsname}%
+        \pgfmathloop%
+        \ifnum\pgfmathcounter>\pgfmath@randomlistlength\relax%
+        \else%
+            \def\pgfmath@marshal{\expandafter\global\expandafter\let\csname pgfmath@randomlist@#1@\pgfmathcounter\endcsname=}%
+            \expandafter\pgfmath@marshal\csname pgfmath@randomlist@#2@\pgfmathcounter\endcsname%
+        \repeatpgfmathloop%
+        \expandafter\xdef\csname pgfmath@randomlist@#1\endcsname{\pgfmath@randomlistlength}%
+    }%  
+}
+\makeatother
+
+
+\lstset{language=[ANSI]C++,basicstyle=\footnotesize\ttfamily,
+keywordstyle=\color{blue},commentstyle=\color{green},
+stringstyle=\color{red}\ttfamily,numbers=left,numberstyle=\tiny,numbersep=5pt}
+
+\begin{document}
+
+\maketitle          % This won't show up when \onlynotestoo is in effect.
+
+\begin{slide}
+  \ifslidesonly              % Title slide only for slidesonly selection.
+    \maketitle
+    \addtocounter{slide}{-1}
+    \slidepagestyle{empty}
+  \fi
+\end{slide}
+
+% OK, after a lot of set your slides actually start here, hear?
+
+\begin{slide}
+\Heading{Title}
+\begin{itemize}
+   \item Item
+   \begin{itemize}
+      \item Sub-item
+   \end{itemize}
+   \item Another item
+   \begin{itemize}
+      \item Sub-item  
+      \item Another sub-item  
+   \end{itemize}
+\end{itemize}
+\vfill
+\end{slide}
+
+
+\begin{slide}
+\Heading{Experimental Results }
+
+\begin{figure}  
+\begin{center}  
+\footnotesize
+\begin{tikzpicture}[scale = 1.0]  
+\pgfplotsset{legend style = {at = {(0.95, 0.5)}, anchor = north east}},
+\begin{axis}[ 
+	width=0.6\textwidth,  
+	height=0.48\textwidth,  
+    legend cell align=left,  
+	title = 5 Attacked Parameters,  
+	xlabel = Generation,  
+	ylabel = \shortstack{Average Fitness},
+    legend entries = {Best config., Top 10 config., Pool fitness, Maximum score} 
+	]
+\addplot[red] table[x = gen, y = max] {data.dat};
+\addplot[blue, style = {dashed}, mark = none] table[x = gen, y = top10] {data.dat};
+\addplot[brown, style = {dashdotted}, mark = none] table[x = gen, y = average] {data.dat};
+\end{axis}
+\end{tikzpicture}
+\end{center}  
+\end{figure}  
+
+\begin{itemize}
+   \item Quickly resolves the 5 vulnerable parameters, pool improves as well
+\end{itemize}
+\vfill
+\end{slide}
+
+
+\begin{slide}
+\Heading{Title}
+\begin{itemize}
+   \item Item
+   \begin{itemize}
+      \item Sub-item
+   \end{itemize}
+\end{itemize}
+\vfill
+\end{slide}
+
+
+% \begin{slide}
+% \Heading{Title}
+% \begin{itemize}
+%    \item Item
+%    \begin{itemize}
+%       \item Sub-item
+%    \end{itemize}
+% \end{itemize}
+% \vfill
+% \end{slide}
+
+\end{document}
