@@ -1,0 +1,188 @@
+\documentclass[executivepaper]{article}
+
+\usepackage{mathtools}
+\everymath{\displaystyle}
+\usepackage{kantlipsum,graphicx}
+\usepackage{amssymb}
+
+\begin{document}
+
+\vspace*{-40mm}
+
+\begin{flushleft}
+
+Let the differential equation $(-x^ny')'=\lambda x^my$ subject to the boundary conditions $y(0)=0, y(1)=0$ be given. Subtracting the $\lambda x^my$ term from both sides yields:
+
+\begin{center}
+
+$(-x^ny')'-\lambda x^my=0$
+
+\end{center}
+
+Now, taking the first derivative, we have:
+
+\begin{center}
+
+$-x^ny''-nx^{n-1}y'-\lambda x^my=0$
+
+\end{center}
+
+\vspace{3mm}
+
+Now, suppose the solutions are of the form $y=x^r$. Then, $y'=rx^{r-1}$ and $y''=r(r-1)x^{r-2}$. Plugging the derivatives we just took back into the original differential equation, we have:
+
+\begin{center}
+
+$-x^2(r(r-1)x^{r-2})-nx^1(rx^{r-1})-\lambda(x^r)=0$
+
+\hspace{1mm}
+
+$-x^2(x^{-2} \cdot x^r \cdot r(r-1))-nx^1(x^{-1} \cdot x^r \cdot r)-\lambda \cdot x^r=0$
+
+\hspace{1mm}
+
+$(-x^r \cdot r(r-1))-n(x^r \cdot r)-\lambda \cdot x^r=0$
+
+\vspace{3mm}
+
+Factoring out a common factor of $x^r$ and then multiplying through by $-1$, we have:
+
+\vspace{3mm}
+
+$x^r \bigg[(r(r-1)+nr+\lambda \bigg]=0$
+
+\hspace{1mm}
+
+$r(r-1)+nr+\lambda=0$, which is our characteristic equation
+
+\end{center}
+
+Now, in order to find the roots of our characteristic equation, we use the quadratic formula:
+
+\begin{center}
+
+$\frac{-(n-1) \pm \sqrt{(n-1)^2-4(\lambda)}}{2(1)}$
+
+\hspace{1mm}
+
+$\implies \frac{-n+1 \pm \sqrt{(n-1)^2-4 \lambda}}{2}$
+
+\hspace{1mm}
+
+$\implies \frac{1-n \pm \sqrt{(n-1)^2-4 \lambda}}{2}$
+
+\vspace{3mm}
+
+Now, using $n=2$, we now have:
+
+\vspace{3mm}
+
+$\implies \frac{1-2 \pm \sqrt{(2-1)^2-4 \lambda}}{2}$
+
+\hspace{1mm}
+
+$\implies \frac{-1 \pm \sqrt{1-4 \lambda}}{2}$
+
+\hspace{1mm}
+
+$\implies \frac{-1}{2} \pm \sqrt{\frac{1}{4}-\lambda}$
+
+\end{center}
+
+Now, if we recall that we supposed that our solutions were of the form $y=x^r$ and denote our two solutions as $y_{1}$ and $y_{2}$, we have: 
+
+\begin{center}
+
+$y_{1}(x)=x^{r_{1}}=x^{-\frac{1}{2}+\sqrt{\frac{1}{4}-\lambda}}=x^{-\frac{1}{2}}x^{\sqrt{\frac{1}{4}-\lambda}}$
+
+\hspace{1mm}
+
+$y_{2}(x)=x^{r_{2}}=x^{-\frac{1}{2}-\sqrt{\frac{1}{4}-\lambda}}=x^{-\frac{1}{2}}x^{-\sqrt{\frac{1}{4}-\lambda}}$
+
+\end{center}
+
+\pagebreak
+
+\vspace*{-40mm}
+
+So, in general, the equation for our general solution will take the form:
+
+\begin{center}
+
+$y(x)=c_{1}x^{r_{1}}+c_{2}x^{r_{2}}$
+
+\end{center}
+
+Substituting back in for $x^{r_{1}}$ and $x^{r_{2}}$, we have:
+
+\begin{center}
+
+$y(x)=c_{1}x^{-\frac{1}{2}}x^{\sqrt{\frac{1}{4}-\lambda}}+c_{2}x^{-\frac{1}{2}}x^{-\sqrt{\frac{1}{4}-\lambda}}$
+
+\end{center}
+
+Next, if we use the initial condition $y(0)=1$, we get:
+
+\begin{center}
+
+$y(0)=c_{1}(1)^{-\frac{1}{2}}(1)^{\sqrt{\frac{1}{4}-\lambda}}+c_{2}(1)^{-\frac{1}{2}}(1)^{-\sqrt{\frac{1}{4}-\lambda}}$
+
+\hspace{1mm}
+
+$y(x)=c_{1}+c_{2}$
+
+\end{center}
+
+Now, consider specifically, $\sqrt{\frac{1}{4}-\lambda}$ \vspace{1mm} :
+
+\begin{center}
+
+$\sqrt{\frac{1}{4}-\lambda}=\sqrt{(-1)\bigg(\lambda - \frac{1}{4}\bigg)}=i\sqrt{\bigg(\lambda - \frac{1}{4}\bigg)}$
+
+\end{center}
+
+In this case, we want to only consider the real roots, so we have to extract them using Euler's formula:
+
+\begin{center}
+
+let $x^{\alpha i}=(e^{\ln(x)})^{\alpha i}=e^{\alpha \ln(x) i}$
+
+\hspace{1mm}
+
+using $e^{\alpha \ln(x) i}$ and $\alpha=\sqrt{\lambda-\frac{1}{4}}$, we have:
+
+\hspace{1mm}
+
+$\cos(\alpha \ln(x))+i\sin(\alpha \ln(x))=\cos\bigg(\sqrt{\lambda-\frac{1}{4}} \ln(x)\bigg)+i\sin\bigg(\sqrt{\lambda-\frac{1}{4}} \ln(x)\bigg)$
+
+\end{center}
+
+Now, earlier, we had shown our two solutions were:
+
+\begin{center}
+
+$y_{1}(x)=x^{-\frac{1}{2}}x^{\sqrt{\frac{1}{4}-\lambda}}$
+
+\hspace{1mm}
+
+$y_{2}(x)=x^{-\frac{1}{2}}x^{-\sqrt{\frac{1}{4}-\lambda}}$
+
+\end{center}
+
+However, if we now update our solutions using the results from apply Euler's formula, we have:
+
+\begin{center}
+
+$y_{1}(x)=x^{-\frac{1}{2}}\cos\bigg(\sqrt{\lambda-\frac{1}{4}} \ln(x)\bigg)$
+
+\hspace{1mm}
+
+$y_{2}(x)=x^{-\frac{1}{2}}sin\bigg(\sqrt{\lambda-\frac{1}{4}} \ln(x)\bigg)$
+
+\end{center}
+
+Both components of the supposed solution will oscillate and become infinitely large as $x \rightarrow 0$
+
+\end{flushleft}
+
+\end{document}

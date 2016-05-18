@@ -1,0 +1,211 @@
+% jias.sty, 12 April 2006
+%
+\documentclass[twoside]{article}
+\usepackage{epsfig,dsa7,graphicx,times,amsmath,amsthm, amssymb, multicol}
+\setlength\titlebox{1.8in} %%% Use this command when there are
+                           %%% multiple authors with different addresses
+                           %%% adjusting size accordingly
+%%%%%% Odd and Even headers, date received and journal volume
+\def\ohead{A Discrete Analog of a Theorem by Schaaf and Schmitt}
+\def\ehead{F. AUTHOR1 and F. AUTHOR2}
+\def\received{September 30, 2016}
+\def\jvol{ 7}
+
+      \newtheorem{theorem}{Theorem}[section]
+      \newtheorem{lemma}[theorem]{Lemma}
+      \newtheorem{corollary}[theorem]{Corollary}
+
+   
+
+      \newcommand{\R}{{\mathbb R}}
+        \newcommand{\Z}{{\mathbb Z}}
+        \newcommand{\N}{{\mathbb N}}
+
+\begin{document}
+\thispagestyle{myheadings}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setcounter{page}{1} %% You will be notified by conference coordinator of the actual page number
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\label{firstpage} %% Used in article header on first page
+
+\title{\ohead}
+\author{Sarah Parsons$^1$ and Stephen B. Robinson$^2$\\ \\
+$^1$ Department of Mathematics and Statistics, Wake Forest University\\
+Winston-Salem, NC 27109, USA\\
+$^2$ Department of Mathematics and Statistics, Wake Forest University\\
+Winston-Salem, NC 27109, USA}
+\maketitle
+
+
+\begin{abstract} We study the problem
+\[
+Ax=\lambda_1 x-cv(x), x\in\R^n
+\]
+where $A$ is a Laplacian matrix, $\lambda_1$ is the principal eigenvalue of $A$, $c\in\R$, $v(x)$ is a gradient vector field that is periodic in each variable. We show that the problem has infinitely many solutions with all positive components and infinitely many solutions with all negative components.
+
+\noindent {\bf AMS (MOS) Subject Classification}. 39A12, 31C20
+
+\vspace{2mm}
+\end{abstract}
+
+\pagestyle{headings}
+\section{INTRODUCTION}
+
+In this brief note we study the discrete problem
+\begin{equation}
+Ax=\lambda_1 x-cv(x), x\in\R^n
+\label{prob}
+\end{equation}
+where $A$ is a Laplacian matrix, $\lambda_1$ is the principal eigenvalue of $A$, $c\in\R$, and $v(x)$ is a gradient vector field that is periodic in each variable. More specifically, we assume $A=[A_{ij}]$ where $A_{ii}=2,A_{ij}=-1$ if $|i-j|=1$, and $A_{ij}=0$ if $|i-j|\geq 2$. For example, for $n=3$
+\[
+A=\begin{bmatrix}
+2 & -1 & 0\\
+-1 & 2 & -1\\
+0 & -1 & 2
+\end{bmatrix}
+\]
+We also assume
+\[
+ v(x)=\left [\begin{array}{c} \sin(x_1)\\ \sin(x_2) \\ .\\.\\.\\ \sin(x_n)\end{array} \right ]
+\]
+
+ We will show that \eqref{prob} has infinitely many solutions with all positive components and infinitely many solutions with all negative components. Our methods are variational and will allow us to characterize infinitely many solutions as local minima. For small enough $|c|$ we will also show that infinitely many solutions can be characterized as saddle points. Our results generalize those in \cite{PR} where only the two and three dimensional cases were considered, and where the variational argument depended on a bound for $c$.
+
+Our research is motivated by  the work of Renate Schaaf and Klaus Schmitt who, in \cite{RS}, proved that there exist infinitely many positive, and infinitely many negative, solutions to the boundary value problem,
+\begin{equation}
+\label{eq:1}
+\begin{array}{c} -u''(x)=u(x)-c \sin(u(x)), \\ u(0)=0=u(\pi).\end{array}
+\end{equation}
+We note that their work was generalized to the analogous PDE in \cite{CJSS}, and many authors have subsequently investigated similar problems. Problem \eqref{eq:1} and its generalizations posed a challenge to nonlinear analysts for several reasons. First, it is a so-called {\em resonance} problem, i.e. if the nonlinear term $\sin (u(x))$ is replaced by a function $f(x)\in L^2(0,\pi)$, then (\ref{eq:1}) becomes a linear problem which only has solutions if $f(x)$ satisfies the orthogonality condition
+ \[
+ \int_0^{\pi}f(x)\sin (x)dx=0,
+ \]
+ and in that case has infinitely many solutions. This is a consequence of the Fredholm Alternative, see \cite{DM}. Second, the term $\sin (u(x))$ does not satisfy the well-known Landesman-Lazer condition, see \cite{LL}, which is a nonlinear adaptation of the previously mentioned orthogonality condition. Our problem is a discrete analog of (\ref{eq:1}).
+
+The authors of \cite{RS} employed the method of bifurcation from infinity combined with some careful integral estimates. This argument begins by considering
+\begin{equation}
+\label{eq:2}
+\begin{array}{c} -u''(x)=\lambda u(x)+c \sin(u(x)), \\ u(0)=0=u(\pi),\end{array}
+\end{equation}
+where $\lambda$ is a real parameter. The bifurcation from infinity argument shows that there is a continuum of solutions $\{(\lambda,u_{\lambda}):\lambda\in\Lambda\}$ such that $\{||u_{\lambda}||_{\infty}:\lambda\in\Lambda\}$ is unbounded, and as $||u_{\lambda}||_{\infty}\rightarrow\infty$ we have $\lambda\rightarrow 1$ and $\frac{u_{\lambda}}{||u_{\lambda}||_{L^2}}\rightarrow \sin(x)$ uniformly. Multiplication of \eqref{eq:2} by $\sin (x)$ followed by an integration by parts leads to
+\[
+(1-\lambda)\int_0^{\pi}u_{\lambda}(x)\sin(x)dx=c\int_0^{\pi}\sin(u_{\lambda}(x))\sin(x)dx.
+\]
+For large $||u_{\lambda}||_{\infty}$ we have $u_\lambda\approx ||u_{\lambda}||_{\infty}\sin(x)$, so it follows that the integral
+\[
+\int_0^{\pi}u_{\lambda}(x)\sin(x)dx,
+\]
+is positive. Moreover, the integral
+\[
+\int_0^{\pi}\sin(u_{\lambda}(x))\sin(x)dx
+\]
+behaves like the integral
+\[
+\int_0^{\pi}\sin(||u_{\lambda}||_{\infty}\sin(x))\sin(x)dx,
+\]
+which is a Bessel's function in the variable $||u_{\lambda}||_{\infty}$ that alternates in sign while decaying in amplitude. Proving the latter claim is what requires the careful integral estimates. Finally, we have the implication that $(1-\lambda)$ must be alternating in sign, and therefore each time $\lambda=1$ we have another positive solution of \eqref{eq:1}. A similar argument can be used to establish the existence of infinitely many negative solutions. Other methods, such as shooting, have also been applied to this type of problem, but in every case that the authors are aware of the proof reduces to the same integral estimates.
+
+The bifurcation from infinity argument can also be applied to \eqref{prob} in a straight-forward way, but the integral estimates do not readily adapt to the analogous sums that arise in the discrete problem. Thus it was necessary to find another approach.  It turns out that a topological theorem related to linear flow on a torus serves as a substitute for the integral estimates. It is this alternative proof and its possible adaptation to the ODE and/or PDE case that is of primary interest to the authors.
+
+
+
+
+\section{THE MAIN RESULT}
+
+\setcounter{subsubsection}{0}
+
+Let \[F(x)=\frac{1}{2} \langle Ax,x \rangle-\frac{\lambda_1}{2}\langle x,x\rangle+cV(x)\forall x=(x_1,...,x_n)\in\R^n\] , where $V$ is the potential function with gradient $v$, i.e.
+ \[
+ V(x):=-\sum_{i=1}^n\cos(x_i),
+ \]and where $\langle \cdot,\cdot \rangle$ is the standard inner product on $\R^n$. We will assume that $c>0$ in the argument below, but we note that the argument for $c<0$ is similar. Observe that finding critical points of $F$ is equivalent to finding solutions of the original problem.
+
+ It is intuitively helpful to imagine the graph of $F$ as a combination of the nonnegative {\em trough}-shaped graph of $\frac{1}{2} \langle Ax,x \rangle-\frac{\lambda_1}{2}\langle x,x\rangle$ and the periodic graph of $cV(x)$. Let $\lambda_1<\lambda_2\leq \lambda_3\leq\cdots\leq\lambda_n$, be the eigenvalues of $A$, and let $\{e_1,...,e_n\}$ be the corresponding eigenvectors that form an orthonormal basis for $\R^n$. Recall that $\lambda_1$ is positive and simple. If we let $x=\overline{x}_1e_1+\overline{x}_2e_2+\cdots \overline{x}_ne_n$, then
+ \[
+ \frac{1}{2} \langle Ax,x \rangle-\frac{\lambda_1}{2}\langle x,x\rangle=\frac{1}{2}\sum_{i=2}^n(\lambda_n-\lambda_1)\overline{x}_i^2,
+ \]
+ which is nonnegative, $0$ only along the line $te_1$, and strictly convex in the variables $\overline{x}_2,...,\overline{x}_n$. The function $cV$ is $2\pi$ periodic in each variable $x_1,...,x_n$, and achieves its global minimum $-cn$ on the lattice points $\{2\pi k:k\in\Z^n\}$.
+
+The solutions of \eqref{prob} are expected to occur as local minima and saddle points near the base of the trough. Our main theorem deals only with the minima. The following lemmas make these ideas more precise.
+
+\begin{lemma}
+For $\epsilon>0$ small enough there is a countable and pairwise disjoint collection of simple open sets $\{N_{k,\epsilon}:k\in\Z^n\}$ such that $N_{k,\epsilon}$ contains the lattice point $2\pi k$, and $\{x:V(x)<-n+\epsilon\}=\bigcup_{k\in\Z^n}^{\infty}N_{k,\epsilon}$.
+\label{L1}
+\end{lemma}
+
+Proof: Observe that $\{x\in\R^n:V(x)=-n\}$ is a lattice of points of the form $2\pi k$ where $k\in\Z^n$. Let $C_k:=\{x\in\R^n:|x_i-2\pi k_i|\leq \pi\forall i\}$. Then $V$ achieves a unique absolute minimum at $2\pi k$ in the cube $C_k$. In the interior of the cube we have
+\[
+\nabla V(x)=\left [ \begin{array}{c} \sin(x_1)\\ \sin(x_2)\\ \vdots \\ \sin(x_n) \end{array} \right ],
+\]
+so $2\pi k$ is the unique critical point of $V$ in the interior of $C_k$. Also, the Hessian
+\[
+H_V(x):=\left [ \begin{array}{ccccc} \cos(x_1)& 0&\cdot&0&0\\ 0 & \cos(x_2) & \cdot & 0 & 0\\ \cdot & \cdot & \cdot & \cdot & \cdot \\0 & 0& \cdot & \cos(x_{n-1}) & 0 \\ 0 & 0 & \cdot & 0 & \cos(x_n)\end{array}\right ]
+\]
+is the identity at $x=2\pi k$, so for small $\epsilon>0$ the sublevel set $N_{k,\epsilon}:=\{x\in C_k: V(x)\leq -n+\epsilon\}$ is a neighborhood in the interior of $C_k$ that is homeomorphic to a ball.
+
+Observe that $\{C_k:k\in\Z^n\}$ is a tiling of $\R^n$, and, by the $2\pi$ periodicity of $V$ in each variable, it follows $\{x\in \R^n: V(x)\leq -n+\epsilon\}=\bigcup_{k\in\Z^n}N_{k,\epsilon}$, and $N_{k,\epsilon}=2\pi k +N_{0,\epsilon}$. $\Box$
+
+\begin{lemma}
+If $te_1\in N_{k,\epsilon}$, then $F$ achieves a local minimum in $N_{k,\epsilon}$.
+\end{lemma}
+
+Proof: Recall that $F(x)=\frac{1}{2}\langle Ax,x\rangle-\frac{\lambda_1}{2}\langle x,x\rangle+cV(x)\geq cV(x)$. On $\partial N_{k,\epsilon}$ we have $F(x)\geq c(-n+\epsilon)$. Also $F(te_1)=cV(te_1)<c(-n+\epsilon)$, because $te_1\in N_{k,\epsilon}$. Hence $F$ must achieve a local minimum in the interior of the compact set $\overline{N}_{k,\epsilon}$. $\Box$
+
+
+\begin{lemma}
+For any $\epsilon>0$ there is a sequence $(t_j)$ such that $t_j\rightarrow\infty$ and a corresponding sequence $N_{k_j,\epsilon}$ such that $t_je_1\in N_{k_j,\epsilon}$.
+\end{lemma}
+
+Proof: Let $\epsilon>0$ be given. Without loss of generality $\epsilon$ is small enough so that Lemma \ref{L1} is applicable. Choose $\delta>0$ such that the open ball $B_{\delta}(0)\subset N_{0,\epsilon}$. By compactness there exists $\{x^1,...,x^m\}\in C_0$ such that $\{B_{\frac{\delta}{2}}(x^j):j\in\{1,...,m\}\}$ is a covering of $C_0$. It follows that
+$\{B_{\frac{\delta}{2}}(x^j)+2\pi k: j\in\{1,...,m\}, k\in\Z^n\}$ is a covering of $\R^n$. Let $B_{\frac{\delta}{2}}(x_i)[2\pi]:=\bigcup_{k\in\Z^n}(B_{\frac{\delta}{2}}(x_i)+2\pi k)$. Then the finite collection $\{B_{\frac{\delta}{2}}(x_i)[2\pi]:j\in\{1,...,m\}\}$ covers $\R^n$. It follows that there is a particular $x^i$, and a sequence $(s_j)$, such that $s_j\rightarrow\infty$ and $s_je_1\in B_{\frac{\delta}{2}}(x^i)[2\pi]\forall j$. It follows that $(s_j-s_1)e_1\in B_{\delta}(0)\subset N_{0,\epsilon}$ for all $j$. Let $t_j=s_j-s_1$. $\Box$.
+
+Notice that for large $t_j>0$ it is clear that $t_je_1$ has large positive components all larger than $\epsilon$, so the elements of $N_{k_j,\epsilon}$ have all positive components.
+
+The preceding argument proves our main theorem.
+
+\begin{theorem} Problem \eqref{prob} has an infinite number of solutions with all positive components and an infinite number of solutions with all negative components.
+\end{theorem}
+
+\section{THE EXISTENCE OF SADDLE POINTS}
+The fact that $F$ has an unbounded set of critical points immediately implies that the Palais-Smale condition is not satisfied. This prevents the application of standard saddle point theorems, which, in part, is why this problem is interesting. In this section we establish the existence of saddle points when the constant $c$ is small enough.
+
+\begin{theorem}
+If $|c|$ is small enough, then problem \eqref{prob} has has an infinite collection of solutions with positive (negative) components which can be characterized as saddle points of the functional $F$.
+\end{theorem}
+
+Proof:
+We note that the Hessian of $F$ is
+\[
+H_F=A-\lambda_1 I-cH_V.
+\]
+The matrix $A-\lambda_1 I$ is invertible and positive definite when restricted to the subspace spanned by $e_2,...,e_n$. Since $H_V$ is bounded it follows that, for small |c|, $H_F$ is invertible and positive definite on the same subspace. Thus for any fixed $\overline{x}_1$ we have that $F(\overline{x}_1e_1+\overline{x}_2 e_2+\cdots +\overline{x}_n e_n)$ is strictly convex in the variables $\overline{x}_2,...,\overline{x}_n$, and so has a unique critical point in these variables that achieves an absolute minimum. It follows that we have a curve $\alpha (t)=te_1+\overline{x}_2(t)e_2+\cdots+\overline{x}_n(t)e_n$ for $t\in\R$, with $\frac{\partial F}{\partial\overline{x}_i}=0$ at each point of the curve for $i=2,3,...,n$. Since $F(te_1)=cV(te_1)\leq n$, these minima are no greater than $cn$ and must occur where $\sum_{i=1}(\lambda_i-\lambda_1)\overline{x}_i^2\leq 2cn$, which implies that $|te_1-\alpha(t)$ is bounded.  Since $H_F$ is invertible in the variables $\overline{x}_2,...,\overline{x}_n$ it follows from the implicit function theorem that $\alpha(t)$ is a smooth curve. Moreover, $\alpha(t)$ must contain the minima described in the previous section. Thus given $\epsilon<\frac{1}{2}$, there is a sequence $(t_j)\in\R$ such that $t_j\rightarrow\infty$ and $F(\alpha(t_j))\leq c(-n+\epsilon)$ for all $j$. Since $e_1$ has all positive components and $\overline{x}_2,...,\overline{x}_n$ are bounded, the first component, $x_1(t)$, of $\alpha(t)$, must go to infinity as $t\rightarrow\infty$, and so there is a sequence $(\tau_j)\in\R$ such that $\tau_j\rightarrow\infty$, $\cos(x_1(\tau_j))=1$, so $V(\alpha(\tau_j)\geq -n+2$, and thus $F(\alpha(\tau_j))\geq c( n-2)>c(-n+\epsilon)$. It follows that $F(\alpha(t))$ achieves infinitely many minima and maxima. The maxima of $F$ restricted to $\alpha(t)$ correspond to saddle points of $F$. $\Box$
+
+\section{CONCLUSION AND OPEN PROBLEMS}
+
+We have succeeded in proving a Schaaf and Schmitt type of result for problem \eqref{prob}. Our results motivate several open problems. Can the restrictions on $c$ be removed in the saddle point theorem? Can this proof be adapted to the analogous ODE and/or PDE, and does it provide additional insight? Do the solutions of the discretized ODE provide reasonable approximations of solutions for the ODE?
+
+
+
+\begin{thebibliography}{99}
+
+\bibitem{CJSS} D. Costa, H. Jeggle, R. Schaaf, K. Schmitt,{\em Oscillatory perturbations of linear problems of resonance}, Results Math. 14 (1988), no. 3-4, 275–287.
+
+\bibitem{DM} P. Drabek, J. Milota, {\em Methods of nonlinear analysis. Applications to differential equations}, Birkhäuser Advanced Texts: Basler Lehrbücher. [Birkhäuser Advanced Texts: Basel Textbooks] Birkhäuser Verlag, Basel, 2007	
+
+\bibitem{LL} E.M. Landesman, A.C. Lazer, {\em Nonlinear perturbations of linear elliptic boundary value problems at resonance}, J. Math. Mech. 19 (1970), 609-623.
+
+\bibitem{PR} S. Parsons, S. B. Robinson, \emph{\em A discrete resonance problem with periodic nonlinear forcing}, to appear in the North Carolina Journal of Mathematics and Statistics
+
+\bibitem{RS}
+		R. Schaaf, K. Schmitt, {\em A class of nonlinear Sturm-Liouville problems with infinitely many solutions}, Trans. Amer. Math. Soc., 306, 853-859 (1988).
+
+
+\end{thebibliography}%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\label{lastpage} %% Used in article header on first page
+
+\end{document}
+

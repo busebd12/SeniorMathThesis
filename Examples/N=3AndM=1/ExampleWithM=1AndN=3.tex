@@ -1,0 +1,176 @@
+\documentclass[executivepaper]{article}
+
+\usepackage{mathtools}
+\everymath{\displaystyle}
+\usepackage{kantlipsum,graphicx}
+\usepackage{amssymb}
+
+\begin{document}
+
+\vspace*{-40mm}
+
+\begin{flushleft}
+
+Let the differential equation $(-x^ny')'=\lambda x^my$ subject to the initial condition $y(0)=1$ be given. Subtracting the $\lambda x^my$ term from both sides yields:
+
+\begin{center}
+
+$(-x^ny')'-\lambda x^my=0$
+
+\end{center}
+
+Now, taking the first derivative, we have:
+
+\begin{center}
+
+$-x^ny''-nx^{n-1}y'-\lambda x^my=0$
+
+\end{center}
+
+Next, let $m=1$ and $n=3$. Then, we have:
+
+\begin{center}
+
+$-x^3y''-3x^2y'-\lambda xy=0$
+
+\end{center}
+
+Now, suppose the solutions are of the form $y=x^r$. Then, $y'=rx^{r-1}$ and $y''=r(r-1)x^{r-2}$. Plugging the derivatives we just took back into the original differential equation, we have:
+
+\begin{center}
+
+$-x^3(r(r-1)x^{r-2})-3x^2(rx^{r-1})-\lambda x(x^r)=0$
+
+\hspace{1mm}
+
+$-x^3(-x^2 \cdot x^r \cdot r(r-1))-3x^2(x^{-1} \cdot x^r \cdot r)-\lambda x^1 \cdot x^r=0$
+
+\hspace{1mm}
+
+$(-x \cdot x^r \cdot r(r-1))-3(x \cdot x^r \cdot r)-\lambda x^1 \cdot x^r=0$
+
+\hspace{1mm}
+
+$x^r \bigg[(-x \cdot r(r-1))-3(x \cdot r)-\lambda x \bigg]=0$
+
+\hspace{1mm}
+
+$r(r-1)+3r+\lambda=0$, which is our characteristic equation
+
+\end{center}
+
+Now, in order to find the roots of our characteristic equation, we use the quadratic formula:
+
+\begin{center}
+
+$\frac{-3 \pm \sqrt{3^2-4(1)(\lambda)}}{2(1)}$
+
+\hspace{1mm}
+
+$\implies \frac{-3 \pm \sqrt{9-4 \lambda}}{2}$
+
+\hspace{1mm}
+
+$\implies \frac{-3 \pm \sqrt{\frac{9}{4}-\lambda}}{2}$
+
+\hspace{1mm}
+
+$\implies -\frac{3}{2} \pm \sqrt{\frac{9}{4}-\lambda}$
+
+\end{center}
+
+Now, if we recall that we supposed that our solutions were of the form $y=x^r$ and denote our two solutions as $y_{1}$ and $y_{2}$, we have: 
+
+\begin{center}
+
+$y_{1}(x)=x^{r_{1}}=x^{-\frac{3}{2}+\sqrt{\frac{9}{4}-\lambda}}=x^{-\frac{3}{2}}x^{\sqrt{\frac{9}{4}-\lambda}}$
+
+\hspace{1mm}
+
+$y_{2}(x)=x^{r_{2}}=x^{-\frac{3}{2}-\sqrt{\frac{9}{4}-\lambda}}=x^{-\frac{3}{2}}x^{-\sqrt{\frac{9}{4}-\lambda}}$
+
+\end{center}
+
+So, in general, the equation for our general solution will take the form:
+
+\begin{center}
+
+$y(x)=c_{1}x^{r_{1}}+c_{2}x^{r_{2}}$
+
+\end{center}
+
+Substituting back in for $x^{r_{1}}$ and $x^{r_{2}}$, we have:
+
+\pagebreak
+
+\vspace*{-40mm}
+
+\begin{center}
+
+$y(x)=c_{1}x^{-\frac{3}{2}}x^{\sqrt{\frac{9}{4}-\lambda}}+c_{2}x^{-\frac{3}{2}}x^{-\sqrt{\frac{9}{4}-\lambda}}$
+
+\end{center}
+
+Next, if we use the initial condition $y(0)=1$, we get:
+
+\begin{center}
+
+$y(0)=c_{1}(1)^{-\frac{3}{2}}(1)^{\sqrt{\frac{9}{4}-\lambda}}+c_{2}(1)^{-\frac{3}{2}}(1)^{-\sqrt{\frac{9}{4}-\lambda}}$
+
+\hspace{1mm}
+
+$y(x)=c_{1}+c_{2}$
+
+\end{center}
+
+Now, consider, specifically, $\sqrt{\frac{9}{4}-\lambda}$ \vspace{1mm} :
+
+\begin{center}
+
+$\sqrt{\frac{9}{4}-\lambda}=\sqrt{(-1)\bigg(\lambda - \frac{9}{4}\bigg)}=i\sqrt{(-1)\bigg(\lambda - \frac{9}{4}\bigg)}$
+
+\end{center}
+
+In this case, we want to only consider the real roots, so we have to extract them using Euler's formula:
+
+\begin{center}
+
+let $x^{\alpha i}=(e^{\ln(x)})^{\alpha i}=e^{\alpha \ln(x) i}$
+
+\hspace{1mm}
+
+using $e^{\alpha \ln(x) i}$ and $\alpha=\sqrt{\lambda-\frac{9}{4}}$, we have:
+
+\hspace{1mm}
+
+$\cos(\alpha \ln(x))+i\sin(\alpha \ln(x))=\cos\bigg(\sqrt{\lambda-\frac{9}{4}} \ln(x)\bigg)+i\sin\bigg(\sqrt{\lambda-\frac{9}{4}} \ln(x)\bigg)$
+
+\end{center}
+
+Now, earlier, we had shown our two solutions were:
+
+\begin{center}
+
+$y_{1}(x)=x^{-\frac{3}{2}}x^{\sqrt{\frac{9}{4}-\lambda}}$
+
+\hspace{1mm}
+
+$y_{2}(x)=x^{-\frac{3}{2}}x^{-\sqrt{\frac{9}{4}-\lambda}}$
+
+\end{center}
+
+However, if we now update our solutions using the results from apply Euler's formula, we have:
+
+\begin{center}
+
+$y_{1}(x)=x^{-\frac{3}{2}}\cos\bigg(\sqrt{\lambda-\frac{9}{4}} \ln(x)\bigg)$
+
+\hspace{1mm}
+
+$y_{2}(x)=x^{-\frac{3}{2}}sin\bigg(\sqrt{\lambda-\frac{9}{4}} \ln(x)\bigg)$
+
+\end{center}
+
+\end{flushleft}
+
+\end{document}
